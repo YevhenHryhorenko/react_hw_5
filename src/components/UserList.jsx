@@ -26,7 +26,7 @@ const UserList = () => {
       const response = await fetch(`https://jsonplaceholder.typicode.com/albums?userId=${userId}`);
       const data = await response.json();
       setAlbums(data);
-      setPhotos(null); // Скидання стану фотографій при виборі нового альбому
+      setPhotos(null);
     } catch (error) {
       console.error('Error fetching albums:', error);
     }
@@ -54,13 +54,13 @@ const UserList = () => {
   
   const handleUserClick = (userId) => {
     if (selectedUser === userId) {
-      setSelectedUser(null); // Забираємо вибір користувача при повторному натисканні
-      setSelectedAlbum(null); // Скидання вибору альбому
-      setPhotos(null); // Скидання стану фотографій
+      setSelectedUser(null);
+      setSelectedAlbum(null);
+      setPhotos(null);
     } else {
       setSelectedUser(userId);
-      setSelectedAlbum(null); // Скидання вибору альбому
-      setPhotos(null); // Скидання стану фотографій
+      setSelectedAlbum(null);
+      setPhotos(null);
       fetchAlbums(userId);
     }
   };
